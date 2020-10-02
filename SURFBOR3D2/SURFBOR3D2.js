@@ -22,7 +22,6 @@ function setup() {
 
 
 function draw() {
-  background(255);
   fill(0);
   textFont(myFont);
   textSize(12);
