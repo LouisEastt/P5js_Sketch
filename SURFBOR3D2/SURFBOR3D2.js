@@ -13,11 +13,12 @@ function preload(){
 function setup() {
   createCanvas(windowWidth,windowHeight);
   angleMode(DEGREES);
-  
   textFont(myFont);
   textSize(windowWidth/7);
   textAlign(CENTER,CENTER);
   text('SURFBOR3D',windowWidth/2,(windowHeight/2)-30);
+  textSize(15);
+  text('Welcome to a world of wacky SURFBOR3Ds.. Use your arrow keys to continue. Have fun exploring!',windowWidth/2,(windowHeight/6)*4);
 }
 
 
@@ -38,6 +39,7 @@ function draw() {
   text('RIGHT ARROW',0,0);  
   rotate(-90);
   translate((-windowWidth)+27,-(windowHeight/2));  //Revert to Original Position
+
 }
 
 function windowResized() {
