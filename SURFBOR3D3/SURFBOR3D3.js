@@ -4,9 +4,6 @@
 //WIP by Louis Eastaugh
 
 var myFont;
-var canvasWidth;
-var canvasHeight;
-
 
 function preload(){
   myFont=loadFont('data/GoshaSans-Regular.otf'); 
@@ -17,7 +14,7 @@ function setup() {
   createCanvas(windowWidth,windowHeight);
   angleMode(DEGREES);
   textFont(myFont);
-  textSize(windowWidth/8);
+  textSize(windowWidth/7);
   textAlign(CENTER,CENTER);
   text('SURFBOR3D',windowWidth/2,(windowHeight/2)-30);
   textSize(15);
@@ -26,25 +23,24 @@ function setup() {
 
 
 function draw() {
-    fill(0);
-    textFont(myFont);
-    textSize(12);
-    textAlign(CENTER,CENTER);
-    text('UP ARROW',(windowWidth/2),25);
-    text('DOWN ARROW',(windowWidth/2),windowHeight-25);
-    translate(25,windowHeight/2);
-    rotate(-90);
-    text('LEFT ARROW',0,0);            //Print Left Arrow of Far Left
-    rotate(90);                        //Rotate Back 
-    translate(-55,-(windowHeight/2));  //Bring back to Top Left position
-    translate((windowWidth),(windowHeight/2));
-    rotate(90); 
-    text('RIGHT ARROW',0,0);  
-    rotate(-90);
-    translate((-windowWidth)+27,-(windowHeight/2));  //Revert to Original Position
+  fill(0);
+  textFont(myFont);
+  textSize(12);
+  textAlign(CENTER,CENTER);
+  text('UP ARROW',(windowWidth/2),25);
+  text('DOWN ARROW',(windowWidth/2),windowHeight-25);
+  translate(25,windowHeight/2);
+  rotate(-90);
+  text('LEFT ARROW',0,0);            //Print Left Arrow of Far Left
+  rotate(90);                        //Rotate Back 
+  translate(-55,-(windowHeight/2));  //Bring back to Top Left position
+  translate((windowWidth),(windowHeight/2));
+  rotate(90); 
+  text('RIGHT ARROW',0,0);  
+  rotate(-90);
+  translate((-windowWidth)+27,-(windowHeight/2));  //Revert to Original Position
 
 }
-
 
 function windowResized() {
    resizeCanvas(windowWidth, windowHeight);
@@ -53,10 +49,10 @@ function windowResized() {
 function keyPressed(){
   
     if (keyCode === LEFT_ARROW){
-     
-    background(255);
-    fill(42,232,126);                                    //Fill Green Background Rect
-    rect(50,50,windowWidth-100,windowHeight-100);        //Rectangle Form
+    
+    background(255);   //Fill White Background
+    fill(42,232,126);  //Fill Green Background Rect
+    rect(50,50,windowWidth-100,windowHeight-100);  //Rectangle Form
     translate((windowWidth/2)-450,(windowHeight/2)+300);
     rotate(-90);
     
@@ -98,9 +94,8 @@ function keyPressed(){
   
     //Curve from Tail Left to Nose
     bezier(xRailL,yRailL,((xRailL+xNose)/2)+curv,((yRailL+yNose)/2)+curv,((xRailL+xNose)/2)+curv,((yRailL+yNose)/2)+curv,xNose,yNose);
-  
-}
-    
+ 
+}    
 
   
   if(keyCode === UP_ARROW){
@@ -218,7 +213,6 @@ function keyPressed(){
   
     //Curve from Tail Left to Nose Left
     bezier(xTailL,yTailL,((xTailL+xNoseL)/2)+curv,((yTail+yNoseL)/2)+curv,((xTail+xNoseL)/2)+curv,((yTail+yNoseL)/2)+curv,xNoseL,yNoseL);
-
 }  
   
   
@@ -291,18 +285,18 @@ function keyPressed(){
 
     //Curve from Nose Right to Nose Middle
     bezier(xNoseR,yNoseL,((300-xTop)+300),yTop,((300-xTop)+300),yTop,xNose,yNose);
-
   }
-}    
+}
+    
+    
     
     
 //MousePressed for Touch 
-function mousePressed(){
+function touchStarted(){
 
 //LEFT POSITION 
 //SG 001 
-  if (mouseX<(windowWidth/6) && mouseY>((windowHeight/6)*2) && mouseY<((windowHeight/5)*4)){
-    
+  if (touchX<(windowWidth/6) && touchY>((windowHeight/6)*2) && touchY<((windowHeight/5)*4)){
     
     background(255);   //Fill White Background
     fill(42,232,126);  //Fill Green Background Rect
@@ -348,13 +342,12 @@ function mousePressed(){
   
     //Curve from Tail Left to Nose
     bezier(xRailL,yRailL,((xRailL+xNose)/2)+curv,((yRailL+yNose)/2)+curv,((xRailL+xNose)/2)+curv,((yRailL+yNose)/2)+curv,xNose,yNose);
- 
 }    
 
 //UP ARROW 
 //SG 002
   
-  if(mouseX>((windowWidth/6)*2) && mouseX<((windowWidth/6)*4) && mouseY<(windowHeight/6)){
+  if(touchX>((windowWidth/6)*2) && touchX<((windowWidth/6)*4) && touchY<(windowHeight/6)){
     //Surfboard Generator 002
    
     background(255);  //Fill White Background
@@ -416,13 +409,14 @@ function mousePressed(){
   
     //Curve from Tail Left to Nose
     bezier(xRailL,yRailL,((xRailL+xNoseL)/2)+curv,((yRailL+yNoseL)/2)+curv,((xRailL+xNoseL)/2)+curv,((yRailL+yNoseL)/2)+curv,xNoseL,yNoseL);
- 
+  
+
 }
   
 //RIGHT ARROW
 //SG 003
 
-   if(mouseX>((windowWidth/6)*5) && mouseY>(windowHeight/5) && mouseY<((windowHeight/6)*5)){
+   if(touchX>((windowWidth/6)*5) && touchY>(windowHeight/5) && touchY<((windowHeight/6)*5)){
     //Surfboard Generator 003
     
       background(255);
@@ -472,13 +466,12 @@ function mousePressed(){
   
     //Curve from Tail Left to Nose Left
     bezier(xTailL,yTailL,((xTailL+xNoseL)/2)+curv,((yTail+yNoseL)/2)+curv,((xTail+xNoseL)/2)+curv,((yTail+yNoseL)/2)+curv,xNoseL,yNoseL);
-
 }  
   
   //DOWN ARROW 
   //SG 004 
  
-  if (mouseX>((windowWidth/6)*2) && mouseX>((windowHeight/6)*4) && mouseY>((windowHeight/6)*4)){
+  if (touchX>((windowWidth/6)*2) && touchX>((windowHeight/6)*4) && touchY>((windowHeight/6)*4)){
    
     background(255);
     fill(232,135,42);  //Fill orange Background Rect
@@ -548,3 +541,55 @@ function mousePressed(){
     bezier(xNoseR,yNoseL,((300-xTop)+300),yTop,((300-xTop)+300),yTop,xNose,yNose);
   }
 }
+
+ function deviceShaken(){
+    //Surfboard Generator 003
+    
+      background(255);
+      //Background... 
+      fill(40,96,222);
+      rect(50,50,windowWidth-100,windowHeight-100);  //Rectangle Form
+    
+      translate((windowWidth/2)-450,(windowHeight/2)+300);
+      rotate(-90);      
+          
+      //Setup anchor pts
+      xNoseL = int(random(150,250));
+      yNoseL = int(random(150, 280));
+
+      xNose = int(random(250,350));
+      yNose = int(random(150,280));
+
+      xNoseR = int(random(350,450));
+      yNoseR = int(random(150,280));
+
+      xTailL = int(random(150,250));
+      yTailL = int(random(320,750));
+
+      xTail = int(random(250,350));
+      yTail = int(random(700,820));
+
+      xTailR = int(random(350,450));
+      yTailR = int(random(320,750));
+
+      curv = int(random(-40,40));
+  
+    noFill(); //No fill for outlines   
+    //Curve from Nose Left To Nose Middle
+    bezier(xNoseL,yNoseL,((xNoseL+xNose)/2)+curv,((yNoseL+yNose)/2)+curv,((xNoseL+xNose)/2)+curv,((yNoseL+yNose)/2)+curv,xNose,yNose);
+  
+    //Curve from Nose To Nose Right
+    bezier(xNose,yNose,((xNose+xNoseR)/2)+curv,((yNose+yNoseR)/2)+curv,((xNose+xNoseR)/2)+curv,((yNose+yNoseR)/2)+curv,xNoseR,yNoseR);
+  
+    //Curve From Nose Right to Tail Right 
+    bezier(xNoseR,yNoseR,((xNoseR+xTailR)/2)+curv,((yNoseR+yTailR)/2)+curv,((xNoseR+xTailR)/2)+curv,((yNoseR+yTailR)/2)+curv,xTailR,yTailR);
+  
+    //Curve from Tail Right to Tail Middle
+    bezier(xTailR,yTailR,((xTailR+xTail)/2)+curv,((yTailR+yTail)/2)+curv,((xTailR+xTail)/2)+curv,((yTailR+yTail)/2)+curv,xTail,yTail);
+
+    //Curve from Tail Middle to Tail Left
+    bezier(xTail,yTail,((xTail+xTailL)/2)+curv,((yTail+yTailL)/2)+curv,((xTail+xTailL)/2)+curv,((yTail+yTailL)/2)+curv,xTailL,yTailL);
+  
+    //Curve from Tail Left to Nose Left
+    bezier(xTailL,yTailL,((xTailL+xNoseL)/2)+curv,((yTail+yNoseL)/2)+curv,((xTail+xNoseL)/2)+curv,((yTail+yNoseL)/2)+curv,xNoseL,yNoseL);
+}  
