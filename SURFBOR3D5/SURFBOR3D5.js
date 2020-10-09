@@ -36,7 +36,7 @@ function setup() {
   text('INFO',(windowWidth-80),25);
   textAlign(LEFT,CENTER);
   textFont(goshaL);
-  //text('Press \'S\' to SAVE',75,25);
+  text('Press \'S\' to SAVE',75,25);
   textFont(goshaR);
   textAlign(CENTER,CENTER);
   text('UP',(windowWidth/2),25);
@@ -277,8 +277,32 @@ function keyPressed(){
     bezier(xNoseR,yNoseL,((300-xTop)+300),yTop,((300-xTop)+300),yTop,xNose,yNose);
  }
  
+ //IF 'S' Pressed
+ //Save and Setup for Image
  if(keyCode === 83){
+  //Overlay white to Cover type
+  
+
+  //Rectangles Covering Previous Type
+  fill(255);
+  noStroke();
+  rect(0,0,50,windowHeight); 
+  rect(0,0,windowWidth,50); 
+  rect(0,windowHeight-50,windowWidth,50);
+  rect(windowWidth-50,0,50,windowHeight); 
+  
+  //Print Type
+  fill(0);
+  textSize(12);
+  textFont(goshaB);
+  textAlign(RIGHT,CENTER);
+  text('SURFBOR3D',(windowWidth-80),25);
+  textAlign(LEFT,CENTER);
+  textFont(goshaL);
+  text('2020',75,25);
+  //Save Form
   save('SURFBOR3D.png');
+  noLoop();
    
  }
 }
